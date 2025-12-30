@@ -1,5 +1,5 @@
 import React from "react";
-import bgImage from "/src/assets/11.png";
+import bgImage from "/public/assets/11.png";
 
 const AddCoffee = () => {
   return (

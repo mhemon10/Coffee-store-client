@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/home/Header';
 import { Outlet } from 'react-router';
+import Footer from '../components/home/Footer';
 
 
 const MainLayouts = () => {
@@ -9,7 +10,8 @@ const MainLayouts = () => {
         <Header></Header>
         <div >
           <Outlet></Outlet>
-        </div>
+            </div>
+            <Footer></Footer>
       </div>
     );
 };
