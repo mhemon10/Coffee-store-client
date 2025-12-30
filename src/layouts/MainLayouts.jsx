@@ -5,10 +5,12 @@ import { Outlet } from 'react-router';
 
 const MainLayouts = () => {
     return (
-        <div>
-            <Header></Header>
-            <Outlet></Outlet>
+      <div>
+        <Header></Header>
+        <div >
+          <Outlet></Outlet>
         </div>
+      </div>
     );
 };
 
