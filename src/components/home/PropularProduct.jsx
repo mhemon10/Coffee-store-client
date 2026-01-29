@@ -16,16 +16,16 @@ const PopularProducts = () => {
   }, []);
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
-      {/* ===== Background Image (ONLY ONE) ===== */}
-      <img
-        src={leftBg}
-        className="absolute left-0 top-24 w-72 opacity-20 pointer-events-none"
-        alt="background"
-      />
+    <section
+      className="relative py-24 bg-no-repeat bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${leftBg})`,
+      }}>
+      {/* overlay for readability (optional but recommended) */}
+      <div className="absolute inset-0 bg-white/30"></div>
 
       {/* ===== Content ===== */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-5xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">
           <p className="text-[#331A15] mb-2">--- Sip & Savor ---</p>
@@ -36,7 +36,7 @@ const PopularProducts = () => {
             Our Popular Products
           </h2>
 
-          <Link to="/add-coffee">
+          <Link to="/addCoffee">
             <button
               className="mt-6 px-6 py-2 bg-[#D2B48C] border-2 border-[#331A15] 
               text-[#331A15] font-semibold hover:bg-transparent transition cursor-pointer"
@@ -76,15 +76,15 @@ const PopularProducts = () => {
 
               {/* Actions */}
               <div className="flex flex-col gap-2">
-                <button className="w-9 h-9 rounded bg-[#D2B48C] text-white cursor-pointer hover:scale-105 transition">
+                <button className="w-9 h-9 rounded bg-[#D2B48C] text-white hover:scale-105 transition">
                   👁
                 </button>
 
-                <button className="w-9 h-9 rounded bg-[#3C3C3C] text-white cursor-pointer hover:scale-105 transition">
+                <button className="w-9 h-9 rounded bg-[#3C3C3C] text-white hover:scale-105 transition">
                   ✏
                 </button>
 
-                <button className="w-9 h-9 rounded bg-red-500 text-white cursor-pointer hover:scale-105 transition">
+                <button className="w-9 h-9 rounded bg-red-500 text-white hover:scale-105 transition">
                   🗑
                 </button>
               </div>
