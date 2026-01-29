@@ -9,7 +9,7 @@ const AddCoffee = () => {
     chef: "",
     supplier: "",
     taste: "",
-    price: "", // Category-r poriborte Price
+    price: "", 
     details: "",
     photo: "",
   });
