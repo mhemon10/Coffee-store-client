@@ -5,9 +5,10 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainLayouts from "./layouts/MainLayouts.jsx";
-import Home from "./components/home/Home.jsx";
-import AddCoffee from "./components/addCoffee/AddCoffee.jsx";
-import UpdateCoffee from "./components/updateCoffee/UpdateCoffee.jsx";
+
+import AddCoffee from "./components/addcoffee/AddCoffee.jsx";
+import UpdateCoffee from "./components/updatecoffee/UpdateCoffee.jsx";
+import Home from "./pages/Home/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,15 +17,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Home></Home>
       },
       {
         path: "addCoffee",
-        element: <AddCoffee />,
+        element: <AddCoffee></AddCoffee>,
       },
       {
         path: "updateCoffee",
-        element: <UpdateCoffee />,
+        element: <UpdateCoffee></UpdateCoffee>
       },
     ],
   },

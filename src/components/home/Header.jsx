@@ -1,6 +1,6 @@
 import React from "react";
 
-import navBg from "/public/assets/navbg.png"; // নেভবারের ব্যাকগ্রাউন্ড ইমেজ
+import navBg from "/public/assets/navbg.png"; 
 
 
 const Navbar = () => {
