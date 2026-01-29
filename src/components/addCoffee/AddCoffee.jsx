@@ -9,7 +9,7 @@ const AddCoffee = () => {
     chef: "",
     supplier: "",
     taste: "",
-    category: "",
+    price: "", // Category-r poriborte Price
     details: "",
     photo: "",
   });
@@ -39,7 +39,7 @@ const AddCoffee = () => {
           chef: "",
           supplier: "",
           taste: "",
-          category: "",
+          price: "", // Reset-er somoy Price blank hobe
           details: "",
           photo: "",
         });
@@ -73,7 +73,7 @@ const AddCoffee = () => {
             ["chef", "Chef"],
             ["supplier", "Supplier"],
             ["taste", "Taste"],
-            ["category", "Category"],
+            ["price", "Price"], // Eikhane Category bad diye Price deya hoyeche
             ["details", "Details"],
           ].map(([key, label]) => (
             <div key={key}>
@@ -81,7 +81,7 @@ const AddCoffee = () => {
                 {label}
               </label>
               <input
-                type="text"
+                type={key === "price" ? "number" : "text"} // Price-er field number hobe
                 name={key}
                 value={coffee[key]}
                 onChange={handleChange}
