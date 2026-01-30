@@ -1,14 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import MainLayouts from "./layouts/MainLayouts.jsx";
-
+import Home from "./pages/Home/HomePage.jsx";
 import AddCoffee from "./components/addcoffee/AddCoffee.jsx";
 import UpdateCoffee from "./components/updatecoffee/UpdateCoffee.jsx";
-import Home from "./pages/Home/HomePage.jsx";
+import CoffeeDetails from "./components/coffeeDetails/CoffeeDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,15 +16,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>
+        element: <Home />,
       },
       {
         path: "addCoffee",
-        element: <AddCoffee></AddCoffee>,
+        element: <AddCoffee />,
       },
       {
-        path: "updateCoffee",
-        element: <UpdateCoffee></UpdateCoffee>
+        path: "updateCoffee/:id",
+        element: <UpdateCoffee />,
+      },
+      {
+        path: "coffee/:id",
+        element: <CoffeeDetails />,
       },
     ],
   },
@@ -34,5 +37,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );
