@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 
 // background image
 import leftBg from "/assets/more/1.png";
@@ -76,9 +76,11 @@ const PopularProducts = () => {
 
               {/* Actions */}
               <div className="flex flex-col gap-2">
-                <button className="w-9 h-9 rounded bg-[#D2B48C] text-white hover:scale-105 transition">
-                  👁
-                </button>
+                <Link to="coffeeDetails">
+                  <button className="w-9 h-9 rounded bg-[#D2B48C] text-white hover:scale-105 transition">
+                    👁
+                  </button>
+                </Link>
 
                 <button className="w-9 h-9 rounded bg-[#3C3C3C] text-white hover:scale-105 transition">
                   ✏
