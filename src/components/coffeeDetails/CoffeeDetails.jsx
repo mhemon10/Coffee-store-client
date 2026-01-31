@@ -57,7 +57,7 @@ const CoffeeDetails = () => {
 
       <div className="text-center mt-10">
         <Link to="/">
-          <button className="px-6 py-2 bg-[#D2B48C] font-bold">
+          <button className="px-6 py-2 bg-[#D2B48C] font-bold cursor-pointer">
             Back Home ☕
           </button>
         </Link>
