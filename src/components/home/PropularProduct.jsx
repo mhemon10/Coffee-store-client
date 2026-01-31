@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import Swal from "sweetalert2";
 // background image
 import leftBg from "/assets/more/1.png";
 
@@ -14,6 +14,35 @@ const PopularProducts = () => {
       .then((data) => setCoffees(data))
       .catch((err) => console.error("Fetch error:", err));
   }, []);
+    
+    
+    // Dellet coffee from Popular coffee
+    const handleDelete = (id) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "This coffee will be permanently deleted!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:3000/coffees/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount > 0) {
+                Swal.fire("Deleted!", "Coffee has been deleted.", "success");
+
+                // UI update
+                setCoffees(coffees.filter((c) => c._id !== id));
+              }
+            });
+        }
+      });
+    };
 
   return (
     <section
@@ -86,7 +115,9 @@ const PopularProducts = () => {
                   ✏
                 </button>
 
-                <button className="w-9 h-9 rounded bg-red-500 text-white hover:scale-105 transition">
+                <button
+                  onClick={() => handleDelete(coffee._id)}
+                  className="w-9 h-9 rounded bg-red-500 text-white cursor-pointer">
                   🗑
                 </button>
               </div>
