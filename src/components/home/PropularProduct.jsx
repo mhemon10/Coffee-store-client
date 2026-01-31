@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 // background image
 import leftBg from "/assets/more/1.png";
+import { useNavigate } from "react-router-dom";
 
 const PopularProducts = () => {
   const [coffees, setCoffees] = useState([]);
@@ -15,6 +16,7 @@ const PopularProducts = () => {
       .catch((err) => console.error("Fetch error:", err));
   }, []);
     
+    const navigate = useNavigate();
     
     // Dellet coffee from Popular coffee
     const handleDelete = (id) => {
@@ -111,7 +113,9 @@ const PopularProducts = () => {
                   </button>
                 </Link>
 
-                <button className="w-9 h-9 rounded bg-[#3C3C3C] text-white hover:scale-105 transition">
+                <button
+                  onClick={() => navigate(`/updateCoffee/${coffee._id}`)}
+                  className="w-9 h-9 rounded bg-[#3C3C3C] text-white cursor-pointer">
                   ✏
                 </button>
 
