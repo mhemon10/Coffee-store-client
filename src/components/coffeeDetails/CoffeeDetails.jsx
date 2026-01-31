@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const CoffeeDetails = () => {
-  const { id } = useParams(); // 👈 URL theke id
+  const { id } = useParams();
   const [coffee, setCoffee] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,32 +20,24 @@ const CoffeeDetails = () => {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-2xl">
-        Loading coffee details ☕...
-      </div>
-    );
+    return <p className="text-center mt-20">Loading...</p>;
   }
 
   if (!coffee) {
-    return <p className="text-center mt-20">No coffee found ❌</p>;
+    return <p className="text-center mt-20">❌ No coffee found</p>;
   }
 
   return (
-    <div className="min-h-screen bg-[#F4F3F0] flex items-center justify-center px-4">
-      <div className="max-w-xl bg-white p-8 rounded-lg shadow-lg">
-        <img
-          src={coffee.photo}
-          alt={coffee.name}
-          className="w-full h-60 object-contain mb-6"
-        />
+    <div className="max-w-4xl mx-auto py-20 px-4">
+      <img src={coffee.photo} alt={coffee.name} className="w-64 mx-auto mb-6" />
 
-        <h2
-          className="text-4xl font-bold mb-4"
-          style={{ fontFamily: "Rancho, cursive" }}>
-          {coffee.name}
-        </h2>
+      <h2
+        className="text-4xl text-center mb-4"
+        style={{ fontFamily: "Rancho, cursive" }}>
+        {coffee.name}
+      </h2>
 
+      <div className="space-y-2 text-lg">
         <p>
           <b>Chef:</b> {coffee.chef}
         </p>
@@ -58,12 +50,16 @@ const CoffeeDetails = () => {
         <p>
           <b>Price:</b> {coffee.price} Taka
         </p>
-        <p className="mt-2">
+        <p>
           <b>Details:</b> {coffee.details}
         </p>
+      </div>
 
-        <Link to="/" className="inline-block mt-6 text-blue-600 underline">
-          ⬅ Back to Home
+      <div className="text-center mt-10">
+        <Link to="/">
+          <button className="px-6 py-2 bg-[#D2B48C] font-bold">
+            Back Home ☕
+          </button>
         </Link>
       </div>
     </div>

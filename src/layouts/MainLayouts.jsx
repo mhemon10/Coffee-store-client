@@ -1,19 +1,21 @@
-import React from 'react';
-import Header from '../components/home/Header';
-import { Outlet } from 'react-router';
-import Footer from '../components/home/Footer';
-
+import React from "react";
+import Header from "../components/home/Header";
+import { Outlet } from "react-router";
+import Footer from "../components/home/Footer";
+import ScrollToTop from "../components/ScroleToTop";
 
 const MainLayouts = () => {
-    return (
+  return (
+    
+    <div>
+      <ScrollToTop></ScrollToTop>
+      <Header></Header>
       <div>
-        <Header></Header>
-        <div >
-          <Outlet></Outlet>
-            </div>
-            <Footer></Footer>
+        <Outlet></Outlet>
       </div>
-    );
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default MainLayouts;
